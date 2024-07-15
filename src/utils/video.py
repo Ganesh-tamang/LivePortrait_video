@@ -79,6 +79,25 @@ def blend(img: np.ndarray, mask: np.ndarray, background_color=(255, 255, 255)):
     img = np.clip(mask_float * img + (1 - mask_float) * bg, 0, 255).astype(np.uint8)
     return img
 
+def concat_frame(driving_image_lst, source_image, I_p_lst):
+     # TODO: add more concat style, e.g., left-down corner driving
+    out_lst = []
+    h, w, _ = I_p_lst[0].shape
+
+    for idx, _ in track(enumerate(I_p_lst), total=len(I_p_lst), description='Concatenating result...'):
+        I_p = I_p_lst[idx]
+        source_image_resized = cv2.resize(source_image, (w, h))
+
+        if driving_image_lst is None:
+            out = np.hstack((source_image_resized, I_p))
+        else:
+            driving_image = driving_image_lst[idx]
+            driving_image_resized = cv2.resize(driving_image, (w, h))
+            out = np.hstack((driving_image_resized, source_image_resized, I_p))
+
+        out_lst.append(out)
+    return out_lst
+
 
 def concat_frames(driving_image_lst, source_image, I_p_lst):
     # TODO: add more concat style, e.g., left-down corner driving

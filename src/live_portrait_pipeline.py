@@ -18,7 +18,7 @@ from .config.inference_config import InferenceConfig
 from .config.crop_config import CropConfig
 from .utils.cropper import Cropper
 from .utils.camera import get_rotation_matrix
-from .utils.video import images2video, concat_frames, get_fps, add_audio_to_video, has_audio_stream
+from .utils.video import images2video, concat_frames,concat_frame, get_fps, add_audio_to_video, has_audio_stream
 from .utils.crop import _transform_img, prepare_paste_back, paste_back
 from .utils.io import load_image_rgb, load_driving_info, resize_to_limit, dump, load
 from .utils.helper import mkdir, basename, dct2device, is_video, is_template, remove_suffix
@@ -218,7 +218,7 @@ class LivePortraitPipeline(object):
 
         ######### build final concact result #########
         # driving frame | source image | generation, or source image | generation
-        frames_concatenated = concat_frames(driving_rgb_crop_256x256_lst, img_crop_256x256, I_p_lst)
+        frames_concatenated = concat_frame(driving_rgb_crop_256x256_lst, img_crop_256x256, I_p_lst)
         wfp_concat = osp.join(args.output_dir, f'{basename(args.source_image)}--{basename(args.driving_info)}_concat.mp4')
         images2video(frames_concatenated, wfp=wfp_concat, fps=output_fps)
 
@@ -411,7 +411,7 @@ class LivePortraitPipeline(object):
         n_frame = min(n_frames,source_n_frames)
         I_p_lst = []
         R_d_0, x_d_0_info = None, None
-        
+
         ######## prepare for pasteback ########
         I_p_pstbk_lst = None
         mask_ori_float_lst=[]
