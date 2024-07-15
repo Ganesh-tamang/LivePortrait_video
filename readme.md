@@ -1,4 +1,4 @@
-<h1 align="center">LivePortrait: Efficient Portrait Animation with Stitching and Retargeting Control</h1>
+<h1 align="center">This is the modification of LivePortrait: Efficient Portrait Animation with Stitching and Retargeting Control for allowing video as a source </h1>
 
 <div align='center'>
     <a href='https://github.com/cleardusk' target='_blank'><strong>Jianzhu Guo</strong></a><sup> 1†</sup>&emsp;
@@ -22,6 +22,7 @@
   <!-- <a href='LICENSE'><img src='https://img.shields.io/badge/license-MIT-yellow'></a> -->
   <a href='https://arxiv.org/pdf/2407.03168'><img src='https://img.shields.io/badge/arXiv-LivePortrait-red'></a>
   <a href='https://liveportrait.github.io'><img src='https://img.shields.io/badge/Project-LivePortrait-green'></a>
+  <a href ='https://github.com/KwaiVGI/LivePortrait'>official liveportrait</a>a
   <a href='https://huggingface.co/spaces/KwaiVGI/liveportrait'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
 </div>
 <br>
@@ -32,19 +33,6 @@
   🔥 For more results, visit our <a href="https://liveportrait.github.io/"><strong>homepage</strong></a> 🔥
 </p>
 
-
-
-## 🔥 Updates
-- **`2024/07/10`**: 💪 We support audio and video concatenating, driving video auto-cropping, and template making to protect privacy. More to see [here](assets/docs/changelog/2024-07-10.md).
-- **`2024/07/09`**: 🤗 We released the [HuggingFace Space](https://huggingface.co/spaces/KwaiVGI/liveportrait), thanks to the HF team and [Gradio](https://github.com/gradio-app/gradio)!
-- **`2024/07/04`**: 😊 We released the initial version of the inference code and models. Continuous updates, stay tuned!
-- **`2024/07/04`**: 🔥 We released the [homepage](https://liveportrait.github.io) and technical report on [arXiv](https://arxiv.org/pdf/2407.03168).
-
-
-
-## Introduction
-This repo, named **LivePortrait**, contains the official PyTorch implementation of our paper [LivePortrait: Efficient Portrait Animation with Stitching and Retargeting Control](https://arxiv.org/pdf/2407.03168).
-We are actively updating and improving this repository. If you find any bugs or have suggestions, welcome to raise issues or submit pull requests (PR) 💖.
 
 ## 🔥 Getting Started
 ### 1. Clone the code and prepare the environment
@@ -162,17 +150,7 @@ We have also provided a script to evaluate the inference speed of each module:
 python speed.py
 ```
 
-Below are the results of inferring one frame on an RTX 4090 GPU using the native PyTorch framework with `torch.compile`:
 
-| Model                             | Parameters(M) | Model Size(MB) | Inference(ms) |
-|-----------------------------------|:-------------:|:--------------:|:-------------:|
-| Appearance Feature Extractor      |     0.84      |       3.3      |     0.82      |
-| Motion Extractor                  |     28.12     |       108      |     0.84      |
-| Spade Generator                   |     55.37     |       212      |     7.59      |
-| Warping Module                    |     45.53     |       174      |     5.21      |
-| Stitching and Retargeting Modules |     0.23      |       2.3      |     0.31      |
-
-*Note: The values for the Stitching and Retargeting Modules represent the combined parameter counts and total inference time of three sequential MLP networks.*
 
 ## Community Resources 🤗
 
