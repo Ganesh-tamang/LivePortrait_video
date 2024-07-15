@@ -37,8 +37,12 @@ def main():
     )
 
     # run
-    # live_portrait_pipeline.execute(args)
-    live_portrait_pipeline.execute_source_video(args)
+    if args.flag_svideo:
+        live_portrait_pipeline.execute_source_video(args)
+
+    else:
+        live_portrait_pipeline.execute(args)
+
 
 
 if __name__ == '__main__':

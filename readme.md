@@ -114,10 +114,10 @@ python inference.py -h
 For video: you can change the input by specifying the `-sd` and `-d` arguments:
 
 ```bash
-python inference.py -sd assets/examples/driving/d3.mp4 -d assets/examples/driving/d0.mp4
+python inference.py -sd assets/examples/driving/d3.mp4 -d assets/examples/driving/d0.mp4 -vd True
 
 # disable pasting back to run faster
-python inference.py -sd assets/examples/driving/d3.mp4 -d assets/examples/driving/d0.mp4 --no_flag_pasteback
+python inference.py -sd assets/examples/driving/d3.mp4 -d assets/examples/driving/d0.mp4 -vd True --no_flag_pasteback
 
 ```
 #### Driving video auto-cropping
