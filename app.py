@@ -145,7 +145,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         gr.Markdown("## For video to video")
     # for video portrait
     with gr.Row():
-        with gr.Accordion(open=True, label="Video Portrait"):
+        with gr.Accordion(open=True, label="Video Portrait "):
             source_video_input = gr.Video()
             gr.Examples(
                 examples=[
@@ -158,8 +158,8 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
                 inputs=[source_video_input],
                 cache_examples=False,
             )
-        with gr.Accordion(open=True, label="Driving Video"):
-            video_input = gr.Video()
+        with gr.Accordion(open=True, label="Driving Video "):
+            video_input_ = gr.Video()
             gr.Examples(
                 examples=[
                     [osp.join(example_video_dir, "d0.mp4")],
@@ -168,7 +168,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
                     [osp.join(example_video_dir, "d14.mp4")],
                     [osp.join(example_video_dir, "d6.mp4")],
                 ],
-                inputs=[video_input],
+                inputs=[video_input_],
                 cache_examples=False,
             )
     with gr.Row():
@@ -183,7 +183,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         with gr.Column():
             process_button_source_animation = gr.Button("🚀 Animate video", variant="primary")
         with gr.Column():
-            process_button_reset = gr.ClearButton([source_video_input, video_input, output_video1, output_video_concat1], value="🧹 Clear")
+            process_button_reset = gr.ClearButton([source_video_input, video_input_, output_video1, output_video_concat1], value="🧹 Clear")
     with gr.Row():
         with gr.Column():
             with gr.Accordion(open=True, label="The animated video in the original image space"):
